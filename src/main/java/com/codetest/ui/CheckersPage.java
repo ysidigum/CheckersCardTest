@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.logging.Logger;
 
 public class CheckersPage {
     private final WebDriver driver;
@@ -28,6 +29,8 @@ public class CheckersPage {
     public void makeMove(int fromX, int fromY, int toX, int toY) {
         String fromSpace = String.format("space%d%d", fromX, fromY);
         String toSpace = String.format("space%d%d", toX, toY);
+
+        System.out.println("Moving from " + fromSpace + " to " + toSpace);
 
         WebElement fromCell = wait.until(ExpectedConditions.elementToBeClickable(By.name(fromSpace)));
         fromCell.click();
